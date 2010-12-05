@@ -21,6 +21,12 @@
 	android:text="STOP"
 	android:id="@+id/btnStop"
 />
+<Button
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:text="CLEAR"
+	android:id="@+id/btnClean"
+/>
 <TextView  
     android:layout_width="fill_parent" 
     android:layout_height="wrap_content" 

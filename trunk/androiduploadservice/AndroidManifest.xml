@@ -10,7 +10,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    <service android:name="UploadService" android:enabled="true"></service>
+    <service android:enabled="true" android:name=".service.UploadService"></service>
 </application>
 	<uses-sdk android:minSdkVersion="5"/>
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />

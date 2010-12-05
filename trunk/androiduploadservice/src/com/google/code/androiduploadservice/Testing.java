@@ -11,22 +11,30 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.code.androiduploadservice.R.id;
+import com.google.code.androiduploadservice.model.Status;
 import com.google.code.androiduploadservice.service.UploadService;
 
 public class Testing extends Activity implements OnClickListener {
     /** Called when the activity is first created. */
     private static final String TAG = Testing.class.getName();
     
+    TextView txtStatus;
+    
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        Button btn = (Button) findViewById(id.btnStart);
-        btn.setOnClickListener(this);
-        btn = (Button) findViewById(id.btnStop);
-        btn.setOnClickListener(this);
+        Button btn;
+        for(int it : new int[] { id.btnClear, id.btnStart, id.btnStop, id.btnList } ) {
+             btn = (Button) findViewById(it);
+             btn.setOnClickListener(this);     
+        }
+        txtStatus = (TextView)findViewById(id.lblCount);
+        // ist der start wirklich notwendig ? 
         startService(new Intent(this, UploadService.class));
         doBindService(); // service ist im aktuelle Thread nicht aktiv. - 
         // praktisch also erst später vorhanden . . . 
@@ -56,6 +64,31 @@ public class Testing extends Activity implements OnClickListener {
         Log.i(TAG,"trigger onStop");
         stopService(new Intent(this, UploadService.class));
     }
+    
+    
+    
+    public void onCleanPressed() {
+        Log.i(TAG,"trigger onClean");
+        if (mIsBound) {
+            mBoundService.clearDb();
+        } else {
+            Toast.makeText(this, "Service not available", Toast.LENGTH_SHORT).show();
+        }
+        
+    }
+    
+    public void onListPressed() {
+        Log.i(TAG,"trigger onList");
+        if (mIsBound) {
+            StringBuilder out = new StringBuilder();
+            for(Status it : mBoundService.listAll()) {
+                out.append(it.getFile()).append("\n");
+            }
+            txtStatus.setText(out.toString());
+        } else {
+            Toast.makeText(this, "Service not available", Toast.LENGTH_SHORT).show();
+        }
+    }
 
     @Override
     public void onClick(View v) {
@@ -65,6 +98,12 @@ public class Testing extends Activity implements OnClickListener {
             break;
         case id.btnStop:
             onStopPressed();
+            break;
+        case id.btnClear: 
+            onCleanPressed();
+            break;
+        case id.btnList:
+            onListPressed();
             break;
         default:
             throw new RuntimeException("Unknown Case for onClick-Switch");

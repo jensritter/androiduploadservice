@@ -1,4 +1,4 @@
-package com.google.code.androiduploadservice;
+package com.google.code.androiduploadservice.model;
 
 import java.util.Date;
 

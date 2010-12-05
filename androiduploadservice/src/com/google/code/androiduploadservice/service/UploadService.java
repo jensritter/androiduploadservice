@@ -1,4 +1,4 @@
-package com.google.code.androiduploadservice;
+package com.google.code.androiduploadservice.service;
 
 import java.util.Date;
 
@@ -9,6 +9,9 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.util.Log;
 import android.widget.Toast;
+
+import com.google.code.androiduploadservice.db.TodoDbHelper;
+import com.google.code.androiduploadservice.model.Status;
 
 public class UploadService extends Service {
 
@@ -23,7 +26,7 @@ public class UploadService extends Service {
      * IPC.
      */
     public class LocalBinder extends Binder {
-        UploadService getService() {
+        public UploadService getService() {
             return UploadService.this;
         }
     }

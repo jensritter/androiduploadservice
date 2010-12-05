@@ -13,6 +13,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 import com.google.code.androiduploadservice.R.id;
+import com.google.code.androiduploadservice.service.UploadService;
 
 public class Testing extends Activity implements OnClickListener {
     /** Called when the activity is first created. */

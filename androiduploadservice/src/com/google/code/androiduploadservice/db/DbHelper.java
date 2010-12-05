@@ -1,4 +1,7 @@
-package com.google.code.androiduploadservice;
+package com.google.code.androiduploadservice.db;
+
+import com.google.code.androiduploadservice.R;
+import com.google.code.androiduploadservice.R.string;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

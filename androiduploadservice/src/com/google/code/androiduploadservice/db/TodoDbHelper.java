@@ -1,4 +1,4 @@
-package com.google.code.androiduploadservice;
+package com.google.code.androiduploadservice.db;
 
 import java.sql.Date;
 import java.util.LinkedList;
@@ -10,6 +10,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
 import android.util.Log;
+
+import com.google.code.androiduploadservice.model.Status;
 
 public class TodoDbHelper  {
     
@@ -49,7 +51,7 @@ public class TodoDbHelper  {
     /** Converts Twitter.Status to ContentValues */
     public ContentValues statusToContentValues(Status status) {
       ContentValues ret = new ContentValues();
-      ret.put(C_ID, status.id);
+      ret.put(C_ID, status.getId());
       ret.put(C_LAST_CHANGED, status.getChanged().getTime());
       ret.put(C_FILE, status.getFile());
       return ret;

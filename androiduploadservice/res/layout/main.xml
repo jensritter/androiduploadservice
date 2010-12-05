@@ -25,7 +25,13 @@
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:text="CLEAR"
-	android:id="@+id/btnClean"
+	android:id="@+id/btnClear"
+/>
+<Button
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:text="LIST"
+	android:id="@+id/btnList"
 />
 <TextView  
     android:layout_width="fill_parent" 

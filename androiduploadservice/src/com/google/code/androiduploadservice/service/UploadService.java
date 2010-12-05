@@ -1,6 +1,7 @@
 package com.google.code.androiduploadservice.service;
 
 import java.util.Date;
+import java.util.List;
 
 import android.app.Service;
 import android.content.Intent;
@@ -79,5 +80,14 @@ public class UploadService extends Service {
             out.append(it.getFile()).append("\n");
         }
         return out.toString();
+    }
+
+    public void clearDb() {
+        dbHelper.removeAll();
+        Log.i(TAG,"all removed");
+    }
+
+    public List<Status> listAll() {
+        return dbHelper.getAllStatus();
     }
 }

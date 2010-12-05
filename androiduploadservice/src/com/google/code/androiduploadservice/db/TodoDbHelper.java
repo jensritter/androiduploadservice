@@ -20,7 +20,7 @@ public class TodoDbHelper  {
     
 
     
-    static final String TAG = "TodoDbHelper";
+    static final String TAG = TodoDbHelper.class.getName();
     static final String TABLE = "upload";
     
     static final String C_ID = BaseColumns._ID;
@@ -88,5 +88,9 @@ public class TodoDbHelper  {
     public boolean update(Status stat) {
         ContentValues values = statusToContentValues(stat);
         return db.update(TABLE, values, C_ID + "=?" , new String[] { "" + stat.getId() }) > 0;
+    }
+
+    public void removeAll() {
+        db.delete(TABLE, null, null);
     }
 }

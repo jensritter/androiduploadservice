@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Testing</string>
+    <string name="app_name">AndroidUploadService</string>
+<string name="sql_create">create table upload (
+	_id INTEGER NOT NULL PRIMARY KEY,
+	file text,
+	last_changed INTEGER
+)
+</string>
 </resources>

@@ -9,5 +9,23 @@
     android:layout_height="wrap_content" 
     android:text="Hello World, Testing"
     />
+<Button
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:text="START"
+	android:id="@+id/btnStart"
+/>
+<Button
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:text="STOP"
+	android:id="@+id/btnStop"
+/>
+<TextView  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="Status"
+    android:id="@+id/lblCount"
+    />
 </LinearLayout>
 

@@ -1,0 +1,1 @@
+Implements a plain uploadQueue as a Service ( i hope )
